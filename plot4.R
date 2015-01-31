@@ -5,7 +5,7 @@ plot4 <- function(){
     datetime <- paste(data$Date,data$Time)
     datetime <- as.POSIXct(datetime)
     
-    par(mfrow=c(2,2))
+    par(mfrow=c(2,2), mar=c(4,4,2,1), oma=c(0,0,2,0))
 
     with(data, {
         plot(Global_active_power~datetime,type="l",xlab="",ylab="Global Active Power")
@@ -14,7 +14,7 @@ plot4 <- function(){
              ylab="Global Active Power (kilowatts)", xlab="")
         lines(Sub_metering_2~datetime,col='Red')
         lines(Sub_metering_3~datetime,col='Blue')
-        legend("topright",lwd=1,col = c("black","blue","red"),legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
+        legend("topright",lty=1, lwd=2, bty="n",,col = c("black","blue","red"),legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
         plot(Global_reactive_power~datetime,type="l",,xlab="datetime",ylab="Global_reactive_power")
         })
     
